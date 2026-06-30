@@ -42,9 +42,9 @@ function Hero() {
           I'm someone who likes solving problems methodically, whether that's training a model, debugging code, or designing a clean user interface.
         </p>
         <div className="hero-buttons">
-          <a href="/Uma_Resume.pdf" download className="btn btn-outline">
-            Download Resume
-          </a>
+          <a href={`${process.env.PUBLIC_URL}/Uma_Resume.pdf`} download className="btn btn-outline">
+  Download Resume
+</a>
         </div>
       </div>
     </section>
