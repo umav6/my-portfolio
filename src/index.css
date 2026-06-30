@@ -1,0 +1,29 @@
+:root {
+  --bg-primary: #feeded;
+  --bg-secondary: #f6e9e9;
+  --bg-card: #ffffff;
+  --border-color: #e2e2e2;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #777777;
+  --accent: #7a2c0df4;
+  --accent-soft: rgba(13, 122, 110, 0.1);
+  --teal: #7a310d;
+  --teal-light: #a83914;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+a {
+  cursor: pointer;
+}
