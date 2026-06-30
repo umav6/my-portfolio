@@ -21,7 +21,7 @@ function About() {
         </div>
 
         <div className="about-image" data-aos="fade-left">
-          <img src={`${process.env.PUBLIC_URL}/profile-photo.jpeg`} alt="Uma Bhagavathy V" className="profile-photo" />
+          <img src={`${process.env.PUBLIC_URL}/Uma Bhagavathy.jpeg`} alt="Uma Bhagavathy V" className="profile-photo" />
         </div>
       </div>
     </section>
