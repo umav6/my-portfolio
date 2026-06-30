@@ -9,21 +9,19 @@ function About() {
       <div className="about-content">
         <div className="about-text" data-aos="fade-right">
           <p>
-            <p>
-  I'm Uma Bhagavathy V, a postgraduate scholar with a strong foundation
-  in Computer Science and Engineering. I'm passionate about Software
-  Development, Artificial Intelligence, Machine Learning, and Problem
-  Solving, and my work sits at the intersection of deep learning research
-  and practical engineering. I'm equally comfortable building full-stack
-  web applications and exploring core programming fundamentals, and I'm
-  always looking for opportunities to apply what I learn to real-world
-  problems.
-</p>
+            I'm Uma Bhagavathy V, a postgraduate scholar with a strong foundation
+            in Computer Science and Engineering. I'm passionate about Software
+            Development, Artificial Intelligence, Machine Learning, and Problem
+            Solving, and my work sits at the intersection of deep learning research
+            and practical engineering. I'm equally comfortable building full-stack
+            web applications and exploring core programming fundamentals, and I'm
+            always looking for opportunities to apply what I learn to real-world
+            problems.
           </p>
         </div>
 
         <div className="about-image" data-aos="fade-left">
-          <img src="/Uma Bhagavathy.jpeg" alt="Uma Bhagavathy V" className="profile-photo" />
+          <img src={`${process.env.PUBLIC_URL}/profile-photo.jpeg`} alt="Uma Bhagavathy V" className="profile-photo" />
         </div>
       </div>
     </section>

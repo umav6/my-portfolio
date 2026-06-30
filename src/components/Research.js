@@ -23,7 +23,7 @@ function Research() {
       status: 'Presented',
       description:
         'Presented research on a GAN-based plant disease detection system evaluated across ResNet, MobileNet, VGG16, and DenseNet architectures, achieving 97.42% accuracy.',
-      certificate: '/certificate-leaf-disease.jpeg',
+      certificate: `${process.env.PUBLIC_URL}/certificate-leaf-disease.jpeg`,
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ function Research() {
       status: 'Presented',
       description:
         'Presented a deep learning approach for sentiment analysis of student course reviews, covering text preprocessing, feature extraction, and classification.',
-      certificate: '/certificate-sentiment-analysis.jpeg',
+      certificate: `${process.env.PUBLIC_URL}/certificate-sentiment-analysis.jpeg`,
     },
     {
   id: 4,
