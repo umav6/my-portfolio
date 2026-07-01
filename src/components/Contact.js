@@ -73,29 +73,39 @@ function Contact() {
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+  type="text"
+  name="name"
+  placeholder="Your Name"
+  value={formData.name}
+  onChange={handleChange}
+  autoComplete="name"
+  required
+/>
+<input
+  type="email"
+  name="email"
+  placeholder="Your Email"
+  value={formData.email}
+  onChange={handleChange}
+  autoComplete="email"
+  required
+/>
+<textarea
+  name="message"
+  placeholder="Your Message"
+  rows="5"
+  value={formData.message}
+  onChange={handleChange}
+  autoComplete="off"
+  required
+></textarea>
           <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="5"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
+  type="text"
+  name="_gotcha"
+  style={{ display: 'none' }}
+  tabIndex="-1"
+  autoComplete="off"
+/>
           <button type="submit" className="btn btn-primary" disabled={sending}>
             {sending ? 'Sending...' : 'Send Message'}
           </button>
