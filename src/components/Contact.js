@@ -1,48 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import './Contact.css';
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSending(true);
-    setError(false);
-
-    try {
-      const response = await fetch('https://formspree.io/f/xlgyjdyn', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setSubmitted(false), 4000);
-      } else {
-        setError(true);
-      }
-    } catch (err) {
-      setError(true);
-    } finally {
-      setSending(false);
-    }
-  };
+  const [state, handleSubmit] = useForm('xlgyjdyn');
 
   return (
     <section id="contact" className="contact">
@@ -73,48 +34,54 @@ function Contact() {
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <input
-  type="text"
-  name="name"
-  placeholder="Your Name"
-  value={formData.name}
-  onChange={handleChange}
-  autoComplete="name"
-  required
-/>
-<input
-  type="email"
-  name="email"
-  placeholder="Your Email"
-  value={formData.email}
-  onChange={handleChange}
-  autoComplete="email"
-  required
-/>
-<textarea
-  name="message"
-  placeholder="Your Message"
-  rows="5"
-  value={formData.message}
-  onChange={handleChange}
-  autoComplete="off"
-  required
-></textarea>
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            autoComplete="name"
+            required
+          />
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
+
           <input
-  type="text"
-  name="_gotcha"
-  style={{ display: 'none' }}
-  tabIndex="-1"
-  autoComplete="off"
-/>
-          <button type="submit" className="btn btn-primary" disabled={sending}>
-            {sending ? 'Sending...' : 'Send Message'}
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            autoComplete="email"
+            required
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+            autoComplete="off"
+            required
+          ></textarea>
+          <ValidationError prefix="Message" field="message" errors={state.errors} />
+
+          {/* Honeypot for bot detection */}
+          <input
+            type="text"
+            name="_gotcha"
+            style={{ display: 'none' }}
+            tabIndex="-1"
+            autoComplete="off"
+          />
+
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={state.submitting}
+          >
+            {state.submitting ? 'Sending...' : 'Send Message'}
           </button>
 
-          {submitted && (
+          {state.succeeded && (
             <p className="form-success">✓ Message sent! I'll get back to you soon.</p>
-          )}
-          {error && (
-            <p className="form-error">✗ Something went wrong. Please try again or email me directly.</p>
           )}
         </form>
       </div>
